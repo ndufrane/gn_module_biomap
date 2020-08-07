@@ -7,7 +7,7 @@ from geonature.utils.env import get_id_module
 from geonature.core.gn_permissions import decorators as permissions
 from geonature.core.gn_permissions.tools import get_or_fetch_user_cruved
 
-blueprint = Blueprint('<MY_MODULE_NAME>', __name__)
+blueprint = Blueprint('BIOMAP', __name__)
 
 
 # Exemple d'une route simple
@@ -21,7 +21,7 @@ def get_view():
 
 # Exemple d'une route protégée le CRUVED du sous module d'authentification
 @blueprint.route('/test_cruved', methods=['GET'])
-@permissions.check_cruved_scope('R', module_code="MY_MODULE_CODE")
+@permissions.check_cruved_scope('R', module_code="BIOMAP")
 @json_resp
 def get_sensitive_view(info_role):
     # Récupérer l'id de l'utilisateur qui demande la route
@@ -33,7 +33,7 @@ def get_sensitive_view(info_role):
     user_cruved = get_or_fetch_user_cruved(
         session=session,
         id_role=info_role.id_role,
-        module_code='MY_MODULE_CODE',
+        module_code='BIOMAP',
     )
     q = DB.session.query(MySQLAModel)
     data = q.all()
