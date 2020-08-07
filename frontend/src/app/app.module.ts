@@ -7,6 +7,7 @@ import { ToastrService, ToastrModule } from 'ngx-toastr';
 
 import {PnxMapModule} from 'pnx-map';
 import {MapService} from 'pnx-map';
+//import { GN2CommonModule } from '@geonature_common/GN2Common.module';
 
 import { AppComponent } from './app.component';
 
